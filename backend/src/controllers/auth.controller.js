@@ -19,6 +19,11 @@ export const signup = async (req, res) => {
         password: hashedPassword,
       })
 
+      if(newUser){
+        // generate the jwt token here
+      }else{
+        res.status(400).json({message: "Invalid user data"})
+      }
   } catch (error) {
     
   }
