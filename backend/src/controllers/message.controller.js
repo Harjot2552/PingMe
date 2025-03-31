@@ -29,3 +29,11 @@ export const getMessages = async(req, res) =>{
         res.status(500).json({error: "Internal Server Error"})
     }
 }
+
+export const sendMessage = async(req, res) =>{
+    try {
+        const {text, image} = req.body
+    } catch (error) {
+
+    }
+}
