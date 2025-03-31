@@ -49,6 +49,10 @@ export const sendMessage = async(req, res) =>{
             text,
             image: imageUrl,
         })
+
+        await newMessage.save();
+
+        //to do in future
     } catch (error) {
 
     }
