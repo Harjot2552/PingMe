@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useState } from "react";
+import { useAuthStore } from "../store/useAuthStore";
 
 const LoginPage = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const { login, isLoggingIn } = useAuthStore();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-export default LoginPage
+    login(formData);
+  };
+  
+  return <div></div>;
+};
+
+export default LoginPage;
