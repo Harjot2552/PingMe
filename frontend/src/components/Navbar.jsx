@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuthStore } from "../store/useAuthStore";
-import { Send } from "lucide-react";
-import { Link, Settings, LogOut, User } from "react-router-dom";
+import { LogOut, Send, Settings, User, } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { authUser, logout } = useAuthStore();
