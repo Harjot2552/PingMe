@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { useAuthStore } from "../store/useAuthStore";
-import { MessageSquare } from "lucide-react";
+// import { useAuthStore } from "../store/useAuthStore";
+import { MessageSquare, User, Mail } from "lucide-react";
 
 const SignUpPage = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     password: "",
   });
 
-  const { signup, isSigningUp } = useAuthStore();
-  const validateForm = () => {};
+  // const { signup, isSigningUp } = useAuthStore();
+  // const validateForm = () => {};
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -34,7 +34,8 @@ const SignUpPage = () => {
           </div>
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="form-control">
+            {/* Full name field */}
+            <div className="form-control">
               <label className="label">
                 <span className="label-text font-medium">Full Name</span>
               </label>
@@ -47,7 +48,27 @@ const SignUpPage = () => {
                   className={`input input-bordered w-full pl-10`}
                   placeholder="John Doe"
                   value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, fullName: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+            {/* email input field */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium">Email</span>
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Mail className="size-5 text-base-content/40" />
+                </div>
+                <input
+                  type="email"
+                  className={`input input-bordered w-full pl-10`}
+                  placeholder="you@example.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
               </div>
             </div>
