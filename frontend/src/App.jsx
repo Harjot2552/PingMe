@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Navbar from './components/Navbar'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import SignUpPage from './pages/SignUpPage'
 import LoginPage from './pages/LoginPage'
@@ -27,11 +27,11 @@ const App = () => {
     <div>
       <Navbar></Navbar>
       <Routes>
-        <Route path='/' element={<HomePage/>}></Route>
+        <Route path='/' element={ authUser ? <HomePage/> : <Navigate to="/login"/>}></Route>
         <Route path='/signup' element={<SignUpPage/>}></Route>
         <Route path='/login' element={<LoginPage/>}></Route>
         <Route path='/settings' element={<SettingsPage/>}></Route>
-        <Route path='/profile' element={<ProfilePage/>}></Route>
+        <Route path='/profile' element={ authUser ? <ProfilePage/> : <Navigate to="/login"/> }></Route>
       </Routes>
     </div>
   )
