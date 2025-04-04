@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useAuthStore } from '../store/useAuthStore';
 
 const SignUpPage = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -7,6 +8,9 @@ const SignUpPage = () => {
         email: "",
         password: "",
     })
+
+    const {signup, isSigningUp} = useAuthStore();
+    const validateForm = () =>{};
   return (
     <div>
       
