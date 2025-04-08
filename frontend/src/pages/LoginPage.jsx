@@ -39,7 +39,7 @@ const LoginPage = () => {
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="form-control">
-            <label className="label">
+            <label className="label mb-3">
               <span className="label-text font-medium">Email</span>
             </label>
             <div className="relative">
@@ -57,7 +57,7 @@ const LoginPage = () => {
           </div>
 
           <div className="form-control">
-            <label className="label">
+            <label className="label mb-3">
               <span className="label-text font-medium">Password</span>
             </label>
             <div className="relative">

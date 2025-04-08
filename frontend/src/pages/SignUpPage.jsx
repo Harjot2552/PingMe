@@ -53,7 +53,7 @@ const SignUpPage = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Full name field */}
             <div className="form-control">
-              <label className="label">
+              <label className="label mb-3">
                 <span className="label-text font-medium">Full Name</span>
               </label>
               <div className="relative">
@@ -73,7 +73,7 @@ const SignUpPage = () => {
             </div>
             {/* email input field */}
             <div className="form-control">
-              <label className="label">
+              <label className="label mb-3">
                 <span className="label-text font-medium">Email</span>
               </label>
               <div className="relative">
@@ -93,7 +93,7 @@ const SignUpPage = () => {
             </div>
             {/* passowrd  / */}
             <div className="form-control">
-              <label className="label">
+              <label className="label mb-3">
                 <span className="label-text font-medium">Password</span>
               </label>
               <div className="relative">
