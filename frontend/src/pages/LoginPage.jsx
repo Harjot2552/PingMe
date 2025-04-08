@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { Eye, EyeOff, Loader2, Mail, Send, Lock } from "lucide-react";
 import AuthImagePattern from "../components/AuthImagePattern";
 import { Link } from "react-router-dom";
 
 const LoginPage = () => {
+   useEffect(() => {
+      document.title = 'Login Up - PingMe';
+    }, []);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",

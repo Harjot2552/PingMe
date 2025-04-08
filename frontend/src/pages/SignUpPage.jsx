@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect  } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { MessageSquare, User, Mail, EyeOff, Eye, Lock, Loader2, Send} from "lucide-react";
 import { Link } from "react-router-dom";
@@ -6,6 +6,9 @@ import AuthImagePattern from "../components/AuthImagePattern";
 import toast from "react-hot-toast";
 
 const SignUpPage = () => {
+  useEffect(() => {
+    document.title = 'Sign Up - PingMe';
+  }, []);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -58,7 +61,7 @@ const SignUpPage = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <User  className="size-5 text-base-content/40" />
+                  <User className="size-5 text-base-content/40" />
                 </div>
                 <input
                   type="text"
