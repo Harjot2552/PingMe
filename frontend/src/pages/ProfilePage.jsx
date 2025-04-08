@@ -13,6 +13,7 @@ const ProfilePage = () => {
 
     reader.onload = async () =>{
       const base64Image = reader.result;
+      await updateProfile({profilePic: base64Image})
     }
   }
   return (
