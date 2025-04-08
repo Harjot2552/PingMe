@@ -1,11 +1,11 @@
 import React from 'react'
 import { useAuthStore } from '../store/useAuthStore'
-import {Camera} from "lucide-react"
+import {Camera, Mail, User} from "lucide-react"
 
 const ProfilePage = () => {
   const {authUser, isUpdatingProfile, updateProfile}  = useAuthStore();
   const handleImageUpload = async (e) =>{
-
+    const file = e.target.files[0]
   }
   return (
     <div className="h-screen pt-20">
@@ -21,7 +21,7 @@ const ProfilePage = () => {
         <div className="flex flex-col items-center gap-4">
           <div className="relative">
             <img
-              src={selectedImg || authUser.profilePic || "/avatar.png"}
+              src={authUser.profilePic || "/avatar.png"}
               alt="Profile"
               className="size-32 rounded-full object-cover border-4 "
             />
