@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useChatStore } from '../store/useChatStore'
 
 const Sidebar = () => {
     const {isUsersLoading,getUsers, selectedUser, setSelectedUser, users } =    useChatStore();
 
     const onlineUsers = []
+
+    useEffect(()=>{
+        getUsers();
+    },[getUsers])
   return (
     <div>
       
