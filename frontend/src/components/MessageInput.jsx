@@ -31,6 +31,21 @@ const MessageInput = () => {
         e.preventDefault();
 
         if(!text.trim() && !imagePreview) return
+
+        
+    try {
+        await sendMessages({
+          text: text.trim(),
+          image: imagePreview,
+        });
+  
+        // Clear form
+        setText("");
+        setimagePreview(null);
+        if (fileInputRef.current) fileInputRef.current.value = "";
+      } catch (error) {
+        console.error("Failed to send message:", error);
+      }
     }
 
   return (
