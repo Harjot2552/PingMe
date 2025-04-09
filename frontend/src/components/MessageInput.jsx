@@ -27,8 +27,10 @@ const MessageInput = () => {
         if(fileInputRef.current) fileInputRef.current.value =""
     }
 
-    const handleSendMessage = async () =>{
+    const handleSendMessage = async (e) =>{
+        e.preventDefault();
 
+        if(!text.trim() && !imagePreview) return
     }
 
   return (
