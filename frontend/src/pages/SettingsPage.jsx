@@ -1,5 +1,7 @@
 import React from "react";
 import { useThemeStore } from "../store/useThemeStore";
+import {THEMES} from "../constants"
+import {Send} from "lucide-react"
 
 const PREVIEW_MESSAGES = [
   { id: 1, content: "Hey! How's it's going?", isSent: false },
@@ -24,7 +26,7 @@ const SettingsPage = () => {
         </div>
 
         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
-
+          {THEMES}
         </div>
       </div>
     </div>
