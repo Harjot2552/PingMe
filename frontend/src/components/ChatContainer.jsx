@@ -10,8 +10,10 @@ useEffect(()=>{
 
   if(isMessagesLoading) return <div>Loading..</div>
   return (
-    <div>
-      
+    <div className='flex-1 flex flex-col overflow-auto'>
+      <ChatHeader/>
+
+      <MessageInput/>
     </div>
   )
 }
