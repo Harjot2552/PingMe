@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useChatStore } from "../store/useChatStore";
 import SidebarSkeleton from "./skeltons/SidebarSkelton";
 import { Users } from "lucide-react";
+import { useAuthStore } from "../store/useAuthStore";
 
 const Sidebar = () => {
   const { isUsersLoading, getUsers, selectedUser, setSelectedUser, users } =
-    useChatStore();
-
-  const onlineUsers = [];
+useChatStore(); 
+     const {onlineUsers} =  useAuthStore()
 
   useEffect(() => {
     getUsers();
@@ -23,7 +23,7 @@ const Sidebar = () => {
         </div>
 
         <div className="overflow-y-auto w-full py-3">
-        {Users.map((user) => (
+        {users.map((user) => (
           <button
             key={user._id}
             onClick={() => setSelectedUser(user)}
