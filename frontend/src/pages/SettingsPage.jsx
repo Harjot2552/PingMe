@@ -12,7 +12,7 @@ const PREVIEW_MESSAGES = [
 
 const SettingsPage = () => {
   const { theme, setTheme } = useThemeStore();
-  
+
   return (
     <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl">
       <div className="space-y-6">
@@ -21,6 +21,10 @@ const SettingsPage = () => {
           <p className="text-sm text-base-content/70">
             Choose a theme for your chat interface
           </p>
+        </div>
+
+        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
+
         </div>
       </div>
     </div>
