@@ -23,7 +23,8 @@ const MessageInput = () => {
     }
 
     const removeImage = () =>{
-
+        setimagePreview(null)
+        if(fileInputRef.current) fileInputRef.current.value =""
     }
 
     const handleSendMessage = async () =>{
