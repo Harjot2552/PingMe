@@ -3,6 +3,8 @@ import { useChatStore } from '../store/useChatStore'
 
 const Sidebar = () => {
     const {isUsersLoading,getUsers, selectedUser, setSelectedUser, users } =    useChatStore();
+
+    const onlineUsers = []
   return (
     <div>
       
