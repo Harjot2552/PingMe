@@ -15,6 +15,11 @@ const MessageInput = () => {
             toast.error("Please select the image type");
             return;
         }
+        const reader = new FileReader();
+        reader.onload = () =>{
+            setimagePreview(reader.result)
+        }
+        reader.readAsDataURL(file)
     }
 
     const removeImage = () =>{
