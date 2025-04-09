@@ -7,8 +7,8 @@ const PREVIEW_MESSAGES = [
   { id: 1, content: "Hey! How's it's going?", isSent: false },
   {
     id: 2,
-    content: "I'm doing great! Just working on some new feature.",
-    isSent: false,
+    content: "I'm doing great! Just working on Mike's Assignment",
+    isSent: true,
   },
 ];
 
@@ -59,10 +59,10 @@ const SettingsPage = () => {
               <div className="px-4 py-3 border-b border-base-300 bg-base-100">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-content font-medium">
-                    J
+                    H
                   </div>
                   <div>
-                    <h3 className="font-medium text-sm">John Doe</h3>
+                    <h3 className="font-medium text-sm">Harjot Singh</h3>
                     <p className="text-xs text-base-content/70">Online</p>
                   </div>
                 </div>
