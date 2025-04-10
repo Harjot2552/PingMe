@@ -3,10 +3,12 @@ import ChatHeader from "./ChatHeader";
 import MessageInput from "./MessageInput";
 import { useChatStore } from "../store/useChatStore";
 import MessageSkelton from "./skeltons/MessageSkelton"
+import { useAuthStore } from "../store/useAuthStore";
+import { formatMessageTime } from "../lib/utils";
 
 const ChatContainer = () => {
   const { isMessagesLoading, messages, getMessages, selectedUser }  = useChatStore();
-  const { authUser } =   useChatStore();
+  const { authUser } =   useAuthStore();
 
   useEffect(() => {
     getMessages(selectedUser._id);
@@ -40,7 +42,7 @@ const ChatContainer = () => {
 
               </div>
                   <div className="chat-header mb-1">
-                    <time className="text-xs opacity-50 ml-1">{message.createdAt}</time>
+                    <time className="text-xs opacity-50 ml-1">{formatMessageTime(message.createdAt)}</time>
 
                   </div>
                   <div className="chat-bubble flex">
