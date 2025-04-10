@@ -7,11 +7,13 @@ import { useAuthStore } from "../store/useAuthStore";
 import { formatMessageTime } from "../lib/utils";
 
 const ChatContainer = () => {
-  const { isMessagesLoading, messages, getMessages, selectedUser }  = useChatStore();
+  const { isMessagesLoading, messages, getMessages, selectedUser, subscribeToMessages, unsubscribeToMessages }  = useChatStore();
   const { authUser } =   useAuthStore();
 
   useEffect(() => {
     getMessages(selectedUser._id);
+    subscribeToMessages();
+    return () => unsubscribeToMessages();
   }, [selectedUser._id, getMessages]);
 
   if (isMessagesLoading)
