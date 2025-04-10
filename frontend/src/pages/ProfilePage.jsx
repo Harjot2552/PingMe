@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useAuthStore } from '../store/useAuthStore'
 import {Camera, Mail, User} from "lucide-react"
+import toast from 'react-hot-toast';
 
 const ProfilePage = () => {
   const {authUser, isUpdatingProfile, updateProfile}  = useAuthStore();
@@ -16,7 +17,12 @@ const ProfilePage = () => {
     reader.onload = async () =>{
       const base64Image = reader.result;
       setSelectedImg(base64Image)
-      await updateProfile({profilePic: base64Image})
+      try {
+        await updateProfile({ profilePic: base64Image });
+      } catch (err) {
+        console.error("Failed to update profile:", err);
+        toast.error(err?.response?.data?.message || "Upload failed");
+      }
     }
   }
   return (

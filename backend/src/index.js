@@ -7,13 +7,17 @@ import {connectDB} from "./lib/db.js"
 import cookieParser from 'cookie-parser'
 import { app, server } from "./lib/socket.js"
 import path from "path"
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
+
 
 dotenv.config();
 
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
+
 
 app.use(
     cors({
@@ -23,6 +27,7 @@ app.use(
 )
 app.use("/api/auth", authRoutes)
 app.use("/api/message", messageRoute)
+
 
 if(process.env.NODE_ENV==="production"){
 app.use(express.static(path.join(__dirname, "../frontend/dist")))
