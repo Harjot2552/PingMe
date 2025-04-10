@@ -80,10 +80,11 @@ export const useAuthStore = create((set, get) => ({
 
   connectSocket: ()=>{
     const {authUser} = get();
-    if(!authUser) return;
+    if(!authUser || get().socket?.connected) return;
     const socket = io(BASE_URL);
     socket.connect();
-
+    set({socket: socket})
   },
-  disconnectSocket: ()=>{}
+  disconnectSocket: ()=>{
+    if(get().socket?.connected) get().socket.disconnected();  }
 }));
