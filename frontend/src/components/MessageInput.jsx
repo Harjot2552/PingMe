@@ -1,16 +1,16 @@
 import React, { useRef, useState } from 'react'
 import { useChatStore } from '../store/useChatStore';
-import { Image, Send } from 'lucide-react';
+import { Image, Send, X } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 const MessageInput = () => {
-    const {text, setText} = useState("")
-    const {imagePreview, setimagePreview} = useState(null);
+    const [text, setText] = useState("")
+    const [imagePreview, setimagePreview] = useState(null);
     const fileInputRef = useRef(null);
     const {sendMessages} = useChatStore();
 
-    const handleImageChange = (e) =>{
-        const file = e.target.file[0];
+    const handleImageChange = async (e) =>{
+        const file = e.target.files[0];
         if(!file.type.startsWith("image/")){
             toast.error("Please select the image type");
             return;
