@@ -36,8 +36,14 @@ const SignUpPage = () => {
   return (
     
     <div className="min-h-screen grid lg:grid-cols-2">
+            {/* left side of the page */}
+ <AuthImagePattern
+        title="Developed by Harjot"
+        subtitle="Connect with friends, share moments, and stay in touch with your loved ones."
+      />
+        {/* right side */}
 
-      {/* left side of the page */}
+
       <div className="flex flex-col justify-center items-center p-6 sm:p-12">
         <div className="w-full max-w-md space-y-8">
           {/* logo */}
@@ -149,12 +155,8 @@ const SignUpPage = () => {
         </div>
       </div>
       
-      {/* right side */}
-
-      <AuthImagePattern
-        title="Developed by Harjot"
-        subtitle="Connect with friends, share moments, and stay in touch with your loved ones."
-      />
+    
+ 
     </div>
   );
 };
