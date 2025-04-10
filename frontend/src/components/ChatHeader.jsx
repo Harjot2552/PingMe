@@ -30,7 +30,7 @@ const ChatHeader = () => {
         </div>
 
         {/* Close button */}
-        <button onClick={() => setSelectedUser(null)}>
+        <button className="cursor-pointer" onClick={() => setSelectedUser(null)}>
           <X />
         </button>
       </div>
