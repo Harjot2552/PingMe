@@ -45,5 +45,9 @@ export const useChatStore = create((set, get) => ({
     }
     },
 
+
+    subscribeToMessages: (userId) =>{
+        const {selectedUser} = get();
+    },
     setSelectedUser: (selectedUser) => set({selectedUser})
 }))
