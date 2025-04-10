@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAuthStore } from '../store/useAuthStore'
 import {Camera, Mail, User} from "lucide-react"
 import toast from 'react-hot-toast';
@@ -6,6 +6,10 @@ import toast from 'react-hot-toast';
 const ProfilePage = () => {
   const {authUser, isUpdatingProfile, updateProfile}  = useAuthStore();
   const [selectedImg, setSelectedImg] = useState(null);
+
+    useEffect(() => {
+      document.title = 'Profile - PingMe';
+    }, []);
 
   const handleImageUpload = async (e) =>{
     const file = e.target.files[0]
@@ -97,7 +101,7 @@ const ProfilePage = () => {
           <div className="space-y-3 text-sm">
             <div className="flex items-center justify-between py-2 border-b border-zinc-700">
               <span>Member Since</span>
-              <span>{authUser.createdAt?.split("T")[0]}</span>
+              <span>{authUser.createdAt ? authUser.createdAt.split("T")[0] : "Date not available"}</span>
             </div>
             <div className="flex items-center justify-between py-2">
               <span>Account Status</span>

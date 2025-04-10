@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useThemeStore } from "../store/useThemeStore";
 import {THEMES} from "../constants"
 import {Send} from "lucide-react"
@@ -14,6 +14,9 @@ const PREVIEW_MESSAGES = [
 
 const SettingsPage = () => {
   const { theme, setTheme } = useThemeStore();
+  useEffect(() => {
+    document.title = 'Settings - PingMe';
+  }, []);
 
   return (
     <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl">
