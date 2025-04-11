@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useChatStore } from '../store/useChatStore'
 import Sidebar from '../components/Sidebar';
 import NoChatSelected from '../components/NoChatSelected';
 import ChatContainer from '../components/ChatContainer';
 
 const HomePage = () => {
+  useEffect(() => {
+    document.title = 'PingMe - Say Something!';
+  }, []);
   const {selectedUser} = useChatStore();
   return (
     <div className='h-screen bg-base-200'>
