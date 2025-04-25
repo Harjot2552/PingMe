@@ -8,7 +8,7 @@ const ProfilePage = () => {
   const [selectedImg, setSelectedImg] = useState(null);
 
     useEffect(() => {
-      document.title = 'Profile - PingMe';
+      document.title = `${authUser.fullName}'s profile - PingMe`;
     }, []);
 
   const handleImageUpload = async (e) =>{
