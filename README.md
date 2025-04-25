@@ -11,7 +11,7 @@ A fully responsive real-time chat application built with the MERN stack. This ap
 - 📸 **Image Sharing** – Send and receive images in chat  
 - 🌙 **Theme Support** – Toggle light/dark themes using DaisyUI  
 - 🟢 **Online Status** – See which users are currently online  
-- 🔊 **Sound Feedback** – Audio plays on user selection  
+- 🔊 **Sound** – Audio plays on user selection  
 - 📱 **Responsive Design** – Fully functional across desktop and mobile  
 - 🎨 **UI** – Built with TailwindCSS, DaisyUI, and custom styling  
 - 🔁 **Auto Scroll** – Smooth scroll to latest message  
@@ -26,6 +26,6 @@ A fully responsive real-time chat application built with the MERN stack. This ap
 - **Authentication:** JSON Web Tokens (JWT)  
 - **State Management:** Zustand  
 - **Database:** MongoDB (via Mongoose)  
-- **Deployment:** *(Add your platforms here, e.g., Vercel, Render, etc.)*
+- **Deployment:** Render
 
 ---
