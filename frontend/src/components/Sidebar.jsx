@@ -3,11 +3,20 @@ import { useChatStore } from "../store/useChatStore";
 import SidebarSkeleton from "./skeltons/SidebarSkelton";
 import { Users } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore";
+import clickSound from "./sounds/click.mp3";
 
 const Sidebar = () => {
   const { isUsersLoading, getUsers, selectedUser, setSelectedUser, users } = useChatStore();
   const { onlineUsers } = useAuthStore();
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
+
+  const handleUserClick = (user) => {
+    if (selectedUser?._id !== user._id) {
+      const audio = new Audio(clickSound);
+      audio.play();
+      setSelectedUser(user);
+    }
+  };
 
   useEffect(() => {
     getUsers();
@@ -45,7 +54,8 @@ const Sidebar = () => {
         {filteredUsers.map((user) => (
           <button
             key={user._id}
-            onClick={() => setSelectedUser(user)}
+            onClick={() => handleUserClick(user)}
+
             className={`
             w-full p-3 flex items-center gap-3
             hover:bg-base-300 transition-colors

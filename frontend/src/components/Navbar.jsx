@@ -1,10 +1,17 @@
 import React from "react";
 import { useAuthStore } from "../store/useAuthStore";
-import { Home, LogOut, Mails, Send, Settings, User, } from "lucide-react";
+import { Home, LogOut, Mails, Send, Settings, User } from "lucide-react";
 import { Link } from "react-router-dom";
+import clickSound from "./sounds/click.mp3";
 
 const Navbar = () => {
   const { authUser, logout } = useAuthStore();
+
+  const handleUserClick = () => {
+    const audio = new Audio(clickSound);
+    audio.play();
+  };
+
   return (
     <header
       className="bg-base-100 border-b border-base-300 fixed w-full top-0 z-40 
@@ -29,14 +36,19 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             {authUser && (
               <>
-               <Link to={"/"} className={`btn btn-sm gap-2`}>
+                <Link
+                  onClick={handleUserClick}
+                  to={"/"}
+                  className={`btn btn-sm gap-2`}
+                >
                   <Mails className="size-5" />
                   <span className="hidden sm:inline">Messages</span>
                 </Link>
               </>
             )}
-          <Link
+            <Link
               to={"/settings"}
+              onClick={handleUserClick}
               className={`
               btn btn-sm gap-2 transition-colors
               
@@ -45,23 +57,27 @@ const Navbar = () => {
               <Settings className="w-4 h-4" />
               <span className="hidden sm:inline">Settings</span>
             </Link>
-          
+
             {authUser && (
               <>
-                 
-                <Link to={"/profile"} className={`btn btn-sm gap-2`}>
+                <Link
+                  onClick={handleUserClick}
+                  to={"/profile"}
+                  className={`btn btn-sm gap-2`}
+                >
                   <User className="size-5" />
                   <span className="hidden sm:inline">Profile</span>
                 </Link>
 
-                <button className="flex gap-2 items-center cursor-pointer" onClick={logout}>
+                <button
+                  className="flex gap-2 items-center cursor-pointer"
+                  onClick={logout}
+                >
                   <LogOut className="size-5" />
                   <span className="hidden sm:inline">Logout</span>
                 </button>
               </>
-              
             )}
-      
           </div>
         </div>
       </div>
